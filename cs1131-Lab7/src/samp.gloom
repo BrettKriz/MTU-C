@@ -1,0 +1,2 @@
+( collatz n/2 if even, 3n+1 if odd )
+[ collatz ] ( Requires cond.gloom ) [ [ dup even [ 2 / dup r> 1 + >r 1 = not ] [ 3 * 1 + dup r> 1 + >r 1 = not ] if ] loop drop r> ] !

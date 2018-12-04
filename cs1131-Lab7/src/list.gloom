@@ -1,0 +1,4 @@
+( insert* )
+[ insert* ] [ dup >r insert r> ] !
+( remove* )
+[ remove* ] [ dup >r remove r> ] !

@@ -1,0 +1,47 @@
+1. The logic of my program is to fill arrays from an input file
+Then once the file has been read and closed, a shared mem
+segment is allocated with the appropriate size.  A struct
+is then type casted over this reserved area and filled.
+The main program then uses execvp to start qsort.c and
+merge.c and waits. qsort directly attaches to the shared mem
+and  modifies the A array in the struct using the quicksort
+algorithm.  Once done, the program then detaches and exits.
+In merge.c, a new shared memory space is allocated and attached
+ and the primary shared memory space is also  attached.
+Merge then proceeds to run multiple forks, which run modified
+ binary searches to obtain an ordering for the merge. In 
+the same fork, the list Z (The result table) is filled to that
+forks best ability. Once all of the forks are done and Z has
+been properly merged with the contents of X and Y,
+the main process of merge.c marks the allocated shared mem
+for deletion, detaches from all shared mem segments, and
+exits.  Main.c then prints out the values in the primary
+shared mem segment and exits.
+
+  
+2. The program works due to shared memory being visable
+amoung forked children, to allow processing in shorter
+time.
+
+
+3.  As previously stated, size measurements for data are 
+taken, a key is obtained for a private shared mem segment,
+a pointer to the shared mem is requested with the key, 
+the memory segment is then attached and usable. This is done
+for all memory segments respectively.  The main shared mem
+segment is used to handle large arrays and array size ints.
+The shared mem segment for merge is to hold 2 ints, to track
+progress filling Z and counting the elements of Y already
+added to Z.
+
+4. There are potential race conditions for merge, mostly in
+the rapid calling for binary searches and their writes to Z.
+
+5. the argument list for qsort is simply is the size of the
+shared mem seg, which appears to be needed to use shmget
+properly... Never really clear if it is needed.
+
+
+6. The argument list for merge is the same as for qsort,
+and so is the reasoning.
+

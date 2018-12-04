@@ -1,0 +1,20 @@
+? 0 NONE SOME FULL
+    ! false
+    ! true
+    ? 1 EXCESS LONG SHORT NONE
+        ! false
+        ? 2 NO YES
+            ? 3 NO YES
+                ? 4 NO YES
+                    ! false
+                    ! true
+                ! true
+            ? 5 NO YES
+                ! true
+                ! false
+        ? 6 YES NO
+            ? 7 NO YES
+                ! false
+                ! true
+            ! true
+        ! true

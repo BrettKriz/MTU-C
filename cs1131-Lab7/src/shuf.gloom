@@ -1,0 +1,12 @@
+( pick ( x y z -- x y z x ) )
+[ pick ] [ >r >r dup r> swap r> swap ] !
+( nip ( x y -- y ) )
+[ nip ] [ >r drop r> ] !
+( 2dup ( x y -- x y x y ) )
+[ 2dup ] [ over over ] !
+( 3dup ( x y z -- x y z x y z ) )
+0 [ ] dup >r insert ( 0 ) 1 r> dup >r insert ( 1 ) 2 r> dup >r insert ( 2 Now fill twice ) r> ( Apperently pre-defined functions dont want to work, so ) [ ] [ over size 0 > [ over 0 swap remove over 0 swap insert -1 ] [ swap drop 0 ] if ] loop dup append eval
+( 2drop ( x y -- ) )
+drop drop
+( 3drop ( x y z -- ) )
+drop drop drop

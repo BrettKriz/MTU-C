@@ -1,0 +1,10 @@
+Graph Justification:
+Please explain why you have chosen your particular graph implementation.
+KEEP ALL LINES LESS THAN 80 CHARACTERS LONG, or you risk receiving no
+credit for this portion.
+
+I chose the AdjListGraph for its balance between overhead and run-time costs.
+I optimized the AdjListGraph with the usage of HashMap in InnerVertex,
+which slants toward slightly more overhead but slightly better runtime, 
+gratified with mostly amortized cost values.
+

@@ -1,0 +1,10 @@
+( keep )
+[ keep ] [ over >r eval r> ] !
+( keep 2 )
+[ keep2 ] [ over >r dup >r eval dup r> eval r> ] !
+( dip )
+[ dip ] [ over >r >r drop r> eval r> ] !
+( dip2 )
+[ dip2 ] [ over >r >r drop r> r> ( Got 1 ) >r over >r >r drop r> eval r> r> ] !
+( repeat )
+[ repeat ] [ dup >r [ over 1 > [ r> dup >r append swap 1 - swap -1 ] [ eval 0 ] if ] loop ] !

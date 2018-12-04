@@ -1,0 +1,24 @@
+( True )
+[ true ] [ -1 ] !
+( False )
+[ false ] [ 0 ] !
+( Not )
+[ not ] [ [ 0 ] [ -1 ] if ] !
+( sign )
+[ sign ] [ 0 > [ 1 ] [ -1 ] if ] !
+( And ( Multiply ) )
+[ and ] [ * -1 * ] !
+( Or ( Add ) )
+[ or ] [ + 1 - 2 / ] !
+( = over sign over sign >r >r ( Store Sign Start Square ) >r dup * dup * r> dup * dup * ( Now use squares ) swap r> * swap r> * / -1 * 1 - 2 / )
+[ = ] [ over over > >r swap over over > >r drop drop r> r> or not ] !
+( < )
+[ < ] [ > not ] !
+( <= )
+[ <= ] [ over over > not >r = r> or ] !
+( >= )
+[ >= ] [ over over > >r = r> or ] !
+( even )
+[ even ] [ 2 mod 1 - ] !
+( odd )
+[ odd ] [ 3 mod  1 - ] !
